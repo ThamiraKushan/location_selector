@@ -198,4 +198,64 @@ export const AVAILABLE_PLACES = [
     lat: -3.4653,
     lon: -58.38,
   },
+  {
+    id: 'p19',
+    title: 'Swiss Alps',
+    image: {
+      src: majesticMountains,
+      alt: 'Snow-capped peaks of the Swiss Alps with pristine alpine meadows.',
+    },
+    lat: 46.8182,
+    lon: 8.2275,
+  },
+  {
+    id: 'p20',
+    title: 'Santorini Sunset',
+    image: {
+      src: caribbeanBeachImg,
+      alt: 'Breathtaking sunset over the white-washed buildings of Santorini.',
+    },
+    lat: 36.3932,
+    lon: 25.4615,
+  },
+  {
+    id: 'p21',
+    title: 'Petra Ancient City',
+    image: {
+      src: ruinsImg,
+      alt: 'The magnificent rock-cut architecture of the ancient city of Petra.',
+    },
+    lat: 30.3285,
+    lon: 35.4444,
+  },
+  {
+    id: 'p22',
+    title: 'Bali Rice Terraces',
+    image: {
+      src: keralaBackwatersImg,
+      alt: 'Stunning terraced rice fields carved into the hillsides of Bali.',
+    },
+    lat: -8.3405,
+    lon: 115.0920,
+  },
+  {
+    id: 'p23',
+    title: 'Antelope Canyon',
+    image: {
+      src: grandCanyonImg,
+      alt: 'Smooth, flowing sandstone walls of Antelope Canyon in Arizona.',
+    },
+    lat: 36.8619,
+    lon: -111.3743,
+  },
+  {
+    id: 'p24',
+    title: 'Maldives Atolls',
+    image: {
+      src: greatBarrierReefImg,
+      alt: 'Crystal clear waters and pristine coral atolls of the Maldives.',
+    },
+    lat: 3.2028,
+    lon: 73.2207,
+  },
 ];

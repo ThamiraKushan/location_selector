@@ -4,12 +4,14 @@ import Places from './components/Places.jsx';
 import { AVAILABLE_PLACES } from './data.js';
 import Modal from './components/Modal.jsx';
 import DeleteConfirmation from './components/DeleteConfirmation.jsx';
+import AddPlaceForm from './components/AddPlaceForm.jsx';
 import logoImg from './assets/logo.png';
 
 function App() {
   const modal = useRef();
   const selectedPlace = useRef();
   const [pickedPlaces, setPickedPlaces] = useState([]);
+  const [customPlaces, setCustomPlaces] = useState([]);
 
   function handleStartRemovePlace(id) {
     modal.current.open();
@@ -25,7 +27,7 @@ function App() {
       if (prevPickedPlaces.some((place) => place.id === id)) {
         return prevPickedPlaces;
       }
-      const place = AVAILABLE_PLACES.find((place) => place.id === id);
+      const place = [...AVAILABLE_PLACES, ...customPlaces].find((place) => place.id === id);
       return [place, ...prevPickedPlaces];
     });
   }
@@ -36,6 +38,12 @@ function App() {
     );
     modal.current.close();
   }
+
+  function handleAddCustomPlace(newPlace) {
+    setCustomPlaces(prev => [newPlace, ...prev]);
+  }
+
+  const allAvailablePlaces = [...customPlaces, ...AVAILABLE_PLACES];
 
   return (
     <>
@@ -61,11 +69,15 @@ function App() {
           places={pickedPlaces}
           onSelectPlace={handleStartRemovePlace}
         />
-        <Places
-          title="Available Places"
-          places={AVAILABLE_PLACES}
-          onSelectPlace={handleSelectPlace}
-        />
+        
+        <div className="available-places-section">
+          <Places
+            title="Available Places"
+            places={allAvailablePlaces}
+            onSelectPlace={handleSelectPlace}
+          />
+          <AddPlaceForm onAddPlace={handleAddCustomPlace} />
+        </div>
       </main>
     </>
   );
